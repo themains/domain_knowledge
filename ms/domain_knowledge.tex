@@ -64,7 +64,7 @@
 \begin{comment}
 
 setwd(paste0(githubdir, "pydomains_app/ms/cisis25/latexcisis25/"))
-tools::texi2dvi("domain_knowledge.tex", pdf = TRUE, clean = TRUE)
+tools::texi2dvi("domain_knowledge_1.tex", pdf = TRUE, clean = TRUE)
 setwd(basedir)
 
 \end{comment}
@@ -133,7 +133,7 @@ For Shallalist, precision, recall, and f1-score are .76, .76, and .76, respectiv
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_rf}
-	\includegraphics[width=\textwidth]{figs/shalla_svm.png}\\SVC
+	\includegraphics[width=\textwidth]{figs/roc-shalla-2017-svc.pdf}\\SVC
 	\end{minipage}
 \end{figure}
 
@@ -166,7 +166,7 @@ We answer the questions using data from Comscore. Comscore maintains an online p
 
 Aside from Hawthorne effect, there are at least three problems with the data:
 \begin{itemize}
-  \item \textbf{Domain level data}: Going to \url{http://nytimes.com} is not the same as reading political news. And measurement error varies by the kind of person. For instance, say we label \url{http://nytimes.com} as political news. For a political junkie, the measurement error for that class label may be zero. For a political teetotaler, it may be 100\%. More generally, domain-level data mean that we count all visits to a domain the same. Some domains host heterogeneous content. And people may self-select into 'off-label' content.
+  \item \textbf{Domain level data}: Going to \url{http://nytimes.com} is not the same as reading political news. And measurement error varies by the kind of person. For instance, say we label \url{http://nytimes.com} as political news. For a political junkie, the measurement error for that class label may be zero. For a political teetotaler, it may be 100\%. More generally, domain-level data mean that we count all visits to a domain the same. Some domains host heterogeneous content. And people may self-select into `off-label' content.
 
   \item \textbf{Machine level data}: these days people browse the Internet on multiple machines \citep{deloitte2019}. And increasingly, the primary machine they browse Internet on is a tablet or a phone. We do not have data on what proportion of browsing a person does on the machine from which the data is being collected and we do know whether the browsing behavior, e.g., what proportion of time is spent on different websites, etc., varies across machines.
 
@@ -226,7 +226,7 @@ Somewhat surprisingly, the most educated most frequently visit (spend most time 
 
 When we split the sample by race, we find that Asian and White households more frequently visit (spend more time on) malware/phishing websites than other racial groups. Again, it seems part of the reason is that Asians/Whites spend more time online (see Figure \ref{fig:prop_total_visits_phishing_malware_educ}).
 
-Splitting by age, we see that households with older people more frequently visit (spend the most time on) phishing/malware sites. Here there is some evidence that it is because they are choosing worse than younger people, with a slightly larger proportion of their visits going to malware or phishing sites (see Table \ref{fig:prop_total_visits_phishing_malware_age}).
+Splitting by age, we see that households with older people more frequently visit (spend the most time on) phishing/malware sites. Here there is some evidence that it is because they are choosing worse than younger people, with a slightly larger proportion of their visits going to malware or phishing sites (see Figure \ref{fig:prop_total_visits_phishing_malware_age}).
 
 \subsection{Consumption of Pornography}
 A consistent pattern emerges across all four versions of our measure: 18--20 visit the pornographic domains the most often, but after that, there is a decline and then a modest upward trend peaking at 40--44 after which the average number of visits roughly monotonically decline (see Figure \ref{fig:total_visits_porn}). You see the same rough pattern in the average time spent as well (see Figure \ref{fig:total_time_porn_age}).
@@ -248,7 +248,7 @@ As education levels increase, number of visits to pornographic domains go down (
 	\end{minipage}
 \end{figure}
 
-Do we see the patterns because it just captures that certain people spend more time online? To check that, we look at the proportions (see Figures \ref{fig:prop_visits_porn_educ}). The data are clear---as people get older, pornographic websites constitute a smaller share of visits with a roughly monotic decline after 40--44. Splitting by education also shows that the declining trend is a result of people in households where the education level is higher, spending less time on pornographic domains (see Figure \ref{fig:prop_visits_porn_educ}).
+Do we see the patterns because it just captures that certain people spend more time online? To check that, we look at the proportions (see Figure \ref{fig:prop_visits_porn_educ}). The data are clear---as people get older, pornographic websites constitute a smaller share of visits with a roughly monotic decline after 40--44. Splitting by education also shows that the declining trend is a result of people in households where the education level is higher, spending less time on pornographic domains (see Figure \ref{fig:prop_visits_porn_educ}).
 
 \begin{figure}[!htb]
   \centering
