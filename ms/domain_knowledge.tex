@@ -56,15 +56,15 @@
 
 \author{Suriyan Laohaprapanon\thanks{Suriyan can be reached at: \href{mailto:suriyant@gmail.com}{\footnotesize{\texttt{suriyant@gmail.com}}}}\vspace{.5cm} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}}
 
-\date{\vspace{.5cm}\normalsize{\today}}
+\date{June 23, 2020}
 
 \begin{document}
 \maketitle
 
 \begin{comment}
 
-setwd(paste0(githubdir, "pydomains_app/ms/cisis25/latexcisis25/"))
-tools::texi2dvi("domain_knowledge_1.tex", pdf = TRUE, clean = TRUE)
+setwd(paste0(githubdir, "domain_knowledge/ms/"))
+tools::texi2dvi("domain_knowledge.tex", pdf = TRUE, clean = TRUE)
 setwd(basedir)
 
 \end{comment}
@@ -79,7 +79,7 @@ In a broad set of domains, from protecting people from harmful content to segmen
 \section{Introduction}
 In a broad set of domains, from cybersecurity to keeping adult content out of kids' reach to segmenting online customers, we need to know the kind of content hosted by a domain.  But the available solutions---curated lists and commercial services---are problematic. Curated lists are limited, carrying, at best, a few million domains. And the quality of popular commercial services is low, with high rates of `unknown' and incorrect labels \citep{deri2015implementing}.
 
-Multiple solutions have been proposed to address the limitations of commercial services and curated lists. For instance, \citep{shen2004web} exploit text summarization to classify web pages. \citep{zhang2010web}, on the other hand, exploits the topological structure for classification.  More recently, \citep{deri2015implementing} used some of the HTML metadata from a small corpus (5,600 webpages) to classify the content and \citep{wang2019bidirectional} used similarity of binary file to classify malicious pages. All of these techniques, however, require significant computational resources---both memory and processing power. Given that there are nearly two billion hostnames on the web today \citep{netcraft2018} and given the need to classify domains in a way that preserves privacy, we need computationally lighter methods, especially for classifying harmful and adult content. To address the issue, we extend some of the work that uses lexical features of the URL to classify harmful content \citep{aldwairi2012malurls, jain2018phish}.
+Multiple solutions have been proposed to address the limitations of commercial services and curated lists. For instance, \cite{shen2004web} exploit text summarization to classify web pages. \cite{zhang2010web}, on the other hand, exploits the topological structure for classification.  More recently, \cite{deri2015implementing} used some of the HTML metadata from a small corpus (5,600 webpages) to classify the content and \cite{wang2019bidirectional} used similarity of binary file to classify malicious pages. All of these techniques, however, require significant computational resources---both memory and processing power. Given that there are nearly two billion hostnames on the web today \citep{netcraft2018} and given the need to classify domains in a way that preserves privacy, we need computationally lighter methods, especially for classifying harmful and adult content. To address the issue, we extend some of the work that uses lexical features of the URL to classify harmful content \citep{aldwairi2012malurls, jain2018phish}.
 
 We exploit labeled data from multiple large, curated lists---\texttt{Shallalist}, \texttt{PhishTank}, \texttt{Malware Domains}, and \texttt{Squidguard}---to build models that predict the kind of content hosted by a domain using the sequence of characters in the domain name. Given the importance of identifying harmful and adult content, we primarily focus on those categories. Our models accurately predict domains that host pornographic content, with f1-scores of .9 or higher. We are less successful at predicting domains that carry malware, etc., with f1-scores of two of our best models around .8. We compare results from our preferred LSTM models to results from Random Forest and SVC and find that LSTM is consistently superior, with larger area under the curve.
 
@@ -106,12 +106,12 @@ Moving to Phishtank 2017 data, as Table \ref{tab:phishtank_model} shows, the wei
 	\begin{minipage}[b]{0.45\textwidth}
 	\centering
 	\label{phish_compare}
-	\includegraphics[width=\textwidth]{figs/roc-phish-2017-lstm-rf-svc.pdf}\\PhishTank
+	\includegraphics[width=\textwidth]{../figs/roc-phish-2017-lstm-rf-svc.pdf}\\PhishTank
 	\end{minipage}
 	\begin{minipage}[b]{0.45\textwidth}
 	\centering
 	\label{malware_compare}
-	\includegraphics[width=\textwidth]{figs/roc-malware-lstm-rf-svc.pdf}\\Malware
+	\includegraphics[width=\textwidth]{../figs/roc-malware-lstm-rf-svc.pdf}\\Malware
 	\end{minipage}
 \end{figure}
 
@@ -123,17 +123,17 @@ For Shallalist, precision, recall, and f1-score are .76, .76, and .76, respectiv
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_lstm}
-	\includegraphics[width=\textwidth]{figs/roc-shalla-2017-lstm.pdf}\\LSTM
+	\includegraphics[width=\textwidth]{../figs/roc-shalla-2017-lstm.pdf}\\LSTM
 	\end{minipage}
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_rf}
-	\includegraphics[width=\textwidth]{figs/roc-shalla-2017-rf.pdf}\\Random Forest
+	\includegraphics[width=\textwidth]{../figs/roc-shalla-2017-rf.pdf}\\Random Forest
 	\end{minipage}
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_rf}
-	\includegraphics[width=\textwidth]{figs/roc-shalla-2017-svc.pdf}\\SVC
+	\includegraphics[width=\textwidth]{../figs/roc-shalla-2017-svc.pdf}\\SVC
 	\end{minipage}
 \end{figure}
 
@@ -145,17 +145,17 @@ For the Toulouse data, with much fewer categories than Shallalist, things look v
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_lstm}
-	\includegraphics[width=\textwidth]{figs/roc-toulouse-2017-lstm.pdf}\\LSTM
+	\includegraphics[width=\textwidth]{../figs/roc-toulouse-2017-lstm.pdf}\\LSTM
 	\end{minipage}
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_rf}
-	\includegraphics[width=\textwidth]{figs/roc-toulouse-2017-rf.pdf}\\Random Forest
+	\includegraphics[width=\textwidth]{../figs/roc-toulouse-2017-rf.pdf}\\Random Forest
 	\end{minipage}
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\label{toulouse_rf}
-	\includegraphics[width=\textwidth]{figs/roc-toulouse-2017-svc.pdf}\\SVC
+	\includegraphics[width=\textwidth]{../figs/roc-toulouse-2017-svc.pdf}\\SVC
 	\end{minipage}
 \end{figure}
 
@@ -210,17 +210,17 @@ Somewhat surprisingly, the most educated most frequently visit (spend most time 
 	\begin{minipage}[b]{0.32\textwidth}
 	\centering
 	\label{fig:total_visits_phishing_malware_educ}
-	\includegraphics[width=\textwidth]{figs/total_visits_phishing_malware_educ.pdf}\\Education
+	\includegraphics[width=\textwidth]{../figs/total_visits_phishing_malware_educ.pdf}\\Education
 	\end{minipage}
 	\begin{minipage}[b]{0.32\textwidth}
 	\centering
 	\label{fig:total_visits_phishing_malware_race}
-	\includegraphics[width=\textwidth]{figs/total_visits_phishing_malware_race.pdf}\\Race
+	\includegraphics[width=\textwidth]{../figs/total_visits_phishing_malware_race.pdf}\\Race
 	\end{minipage}
 	\begin{minipage}[b]{0.32\textwidth}
 	\centering
 	\label{fig:total_visits_phishing_malware_age}
-	\includegraphics[width=\textwidth]{figs/total_visits_phishing_malware_age.pdf}\\Age
+	\includegraphics[width=\textwidth]{../figs/total_visits_phishing_malware_age.pdf}\\Age
 	\end{minipage}
 \end{figure}
 
@@ -239,12 +239,12 @@ As education levels increase, number of visits to pornographic domains go down (
 	\begin{minipage}[b]{0.47\textwidth}
 	\centering
 	\label{fig:total_visits_porn_educ}
-	\includegraphics[width=\textwidth]{figs/total_visits_porn_educ.pdf}\\Education
+	\includegraphics[width=\textwidth]{../figs/total_visits_porn_educ.pdf}\\Education
 	\end{minipage}
 	\begin{minipage}[b]{0.47\textwidth}
 	\centering
 	\label{fig:total_visits_porn_age}
-	\includegraphics[width=\textwidth]{figs/total_visits_porn_age.pdf}\\Age
+	\includegraphics[width=\textwidth]{../figs/total_visits_porn_age.pdf}\\Age
 	\end{minipage}
 \end{figure}
 
@@ -254,14 +254,14 @@ Do we see the patterns because it just captures that certain people spend more t
   \centering
   \caption{Proportion of Visits to Pornographic Domains by Education}
 	\label{fig:prop_visits_porn_educ}
-	\includegraphics[width=\textwidth]{figs/prop_total_visits_porn_edu.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_visits_porn_edu.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Proportion of Visits to Pornographic Domains by Age}
 	\label{fig:prop_visits_porn_age}
-	\includegraphics[width=\textwidth]{figs/prop_total_visits_porn_age.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_visits_porn_age.pdf}
 \end{figure}
 
 \section{Discussion}
@@ -459,77 +459,77 @@ weighted avg     & 0.95    & 0.96    & 0.95    & 402,432 \\
   \centering
   \caption{Time Spent on Phishing/Malware Domains by Education}
 	\label{fig:total_time_phishing_malware_educ}
-	\includegraphics[width=\textwidth]{figs/total_time_phishing_malware_educ.pdf}
+	\includegraphics[width=\textwidth]{../figs/total_time_phishing_malware_educ.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Time Spent on Phishing/Malware Domains by Race}
 	\label{fig:prop_total_time_phishing_malware_race}
-	\includegraphics[width=\textwidth]{figs/total_time_phishing_malware_race.pdf}
+	\includegraphics[width=\textwidth]{../figs/total_time_phishing_malware_race.pdf}
 	\end{figure}
 
 \begin{figure}[!htb]
 	 \centering
 	 \caption{Time Spent on Phishing/Malware Domains by Age}
 	 \label{fig:prop_total_time_phishing_malware_age}
-	 \includegraphics[width=\textwidth]{figs/total_time_phishing_malware_age.pdf}
+	 \includegraphics[width=\textwidth]{../figs/total_time_phishing_malware_age.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \caption{Proportion of Time Spent on Phishing/Malware Domains by Education}
 	\label{fig:prop_total_time_phishing_malware_educ}
-	\includegraphics[width=\textwidth]{figs/prop_total_time_phishing_malware_tl_educ.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_time_phishing_malware_tl_educ.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
 	 \centering
 	 \caption{Proportion of Time Spent on Phishing/Malware Domains by Race}
 	 \label{fig:prop_total_time_phishing_malware_race}
-	 \includegraphics[width=\textwidth]{figs/prop_total_time_phishing_malware_tl_race.pdf}
+	 \includegraphics[width=\textwidth]{../figs/prop_total_time_phishing_malware_tl_race.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
 	 \centering
 	 \caption{Proportion of Time Spent on Phishing/Malware Domains by Age}
 	 \label{prop_total_time_phishing_malware_age}
-	 \includegraphics[width=\textwidth]{figs/prop_total_time_phishing_malware_tl_age.pdf}
+	 \includegraphics[width=\textwidth]{../figs/prop_total_time_phishing_malware_tl_age.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Proportion of Visits to Phishing/Malware Domains by Education}
 	\label{fig:prop_total_visits_phishing_malware_educ}
-	\includegraphics[width=\textwidth]{figs/prop_total_visits_phishing_malware_tl_educ.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_visits_phishing_malware_tl_educ.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Time Spent on Pornographic Domains by Education}
   \label{fig:total_time_porn_educ}
-  \includegraphics[width=\textwidth]{figs/total_time_porn_educ.pdf}
+  \includegraphics[width=\textwidth]{../figs/total_time_porn_educ.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Time Spent on Pornographic Domains by Age}
   \label{fig:total_time_porn_age}
-  \includegraphics[width=\textwidth]{figs/total_time_porn_age.pdf}\\Age
+  \includegraphics[width=\textwidth]{../figs/total_time_porn_age.pdf}\\Age
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
   \caption{Proportion of Visits to Phishing/Malware Domains by Race}
 	\label{fig:prop_total_visits_phishing_malware_race}
-	\includegraphics[width=\textwidth]{figs/prop_total_visits_phishing_malware_tl_race.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_visits_phishing_malware_tl_race.pdf}
 	\end{figure}
 
 \begin{figure}[!htb]
 	 \centering
 	 \caption{Proportion of Visits to Phishing/Malware Domains by Age}
 	 \label{fig:prop_total_visits_phishing_malware_age}
-	 \includegraphics[width=\textwidth]{figs/prop_total_visits_phishing_malware_tl_age.pdf}
+	 \includegraphics[width=\textwidth]{../figs/prop_total_visits_phishing_malware_tl_age.pdf}
 \end{figure}
 
 
@@ -537,14 +537,14 @@ weighted avg     & 0.95    & 0.96    & 0.95    & 402,432 \\
   \centering
   \caption{Proportion of Time Spent on Pornographic Domains by Education}
 	\label{fig:prop_time_porn_educ}
-	\includegraphics[width=\textwidth]{figs/prop_total_time_porn_educ.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_time_porn_educ.pdf}
 \end{figure}
 
 \begin{figure}[!htb]
 	\centering
 	\caption{Proportion of Time Spent on Pornographic Domains by Age}
 	\label{fig:prop_time_porn_age}
-	\includegraphics[width=\textwidth]{figs/prop_total_time_porn_age.pdf}
+	\includegraphics[width=\textwidth]{../figs/prop_total_time_porn_age.pdf}
 \end{figure}
 
 \end{document}
